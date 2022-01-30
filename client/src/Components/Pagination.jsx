@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 //ver de agregar cosas
+/* Paginado para ir buscando y mostrando los siguientes pokemons, 12 pokemons por pagina. */
 export default function Pagination(){
     return(
         <div>
