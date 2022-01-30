@@ -39,7 +39,7 @@ module.exports = (sequelize) => {
     weight: {
       type: DataTypes.INTEGER,
     },
-    //qu es esto??
+    //Imagen!!
     sprite: {
       type: DataTypes.STRING,
     },
