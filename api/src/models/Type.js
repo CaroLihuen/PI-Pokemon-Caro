@@ -8,10 +8,16 @@ module.exports = (sequelize) => {
       type: DataTypes.STRING,
       allowNull: false,
     },
+    //Puede ser integer 
     id:{
       type: DataTypes.UUID,
       primaryKey: true,
       defaultValue: DataTypes.UUIDV4,
     }
-  });
+  },
+    {
+      timestamps: false,
+      cretedAt: false,
+    }
+  );
 };
