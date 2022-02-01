@@ -1,7 +1,6 @@
 require('dotenv').config();
 const { Type, Pokemon } = require('../db.js');
 const axios = require('axios')
-const { Op } = require('sequelize')
 const { API_URL_TYPE }= process.env;
 //Anda joya! :)
 const getTypes =  async(req, res, next)=>{

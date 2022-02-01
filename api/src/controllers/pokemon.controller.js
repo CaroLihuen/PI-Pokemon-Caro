@@ -45,13 +45,13 @@ const getPoke = async(req, res, next)=>{
 const pokeDb = async(res,req)=>{
     try{
      const dt = await Pokemon.findAll({
-         include: Type/*{
-             model:  ,
+        include: {
+             model: Type ,
              attributes: ['name'],
              through: {
                  attributes: []
              }
-         }*/
+         }/**/
      })
     const pokedb = dt.map((p)=>{
          return{

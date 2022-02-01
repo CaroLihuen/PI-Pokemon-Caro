@@ -11,5 +11,6 @@ const router = Router();
   - En una primera instancia deberán traerlos desde pokeapi y guardarlos en su propia base de datos y luego ya utilizarlos desde allí
 */
 router.get('/', getTypes);
+
 //trae un array de objetos
 module.exports = router;

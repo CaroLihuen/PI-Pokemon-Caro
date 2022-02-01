@@ -6,7 +6,10 @@ const { API_URL }= process.env;
 const { Op } = require('sequelize');
 
 const router = Router();
-
+/* get pokemons: 
+- Obtener un listado de los pokemons desde pokeapi.
+  - Debe devolver solo los datos necesarios para la ruta principal
+*/ 
 router.get('/', async(req,res,next)=>{
   const datas = await pokemonsAll();
   try{
@@ -16,10 +19,6 @@ router.get('/', async(req,res,next)=>{
    next(error)
   }
 });// getPokepokemonsAll
-/* get pokemons: 
-- Obtener un listado de los pokemons desde pokeapi.
-  - Debe devolver solo los datos necesarios para la ruta principal
-*/ 
 /* get pokemons/{idpokemons}: 
  - Obtener el detalle de un pokemon en particular
   - Debe traer solo los datos pedidos en la ruta de detalle de pokemon
@@ -60,16 +59,22 @@ router.get('/:id', async (req, res, next) => {
       next(error)
     }
 });
-
 /* get pokemons/?name:... : 
  - Obtener el pokemon que coincida exactamente con el nombre pasado como query parameter (Puede ser de pokeapi o creado por nosotros)
   - Si no existe ningún pokemon mostrar un mensaje adecuado
 */
 router.get('/', async (req, res, next) =>{
   const name = req.query.name;
+  //Arreglar cuando viene del db
   let info = await getPoke(); 
   try{
-   if(name){
+   if(info){
+    let nameP = info.filter((d)=>
+    d.name.toLowerCase().includes(name.toLowerCase())
+    )
+    res.status(200).json({message:"Busqueda por db"},nameP)
+   }
+    else{
     const pokeid = await axios(`${API_URL}/${name}`)
     const pd = pokeid.data;
     const data= {
@@ -83,26 +88,22 @@ router.get('/', async (req, res, next) =>{
        sprite: pd.sprites.other.dream_world.front_default,
        types: pd.types.map((t) => t.type.name)
     } /**/
-    return res.status(200).json(data)
-   } else if (name){
-    let nameP = info.filter((d)=>
-    d.name.toLowerCase().includes(name.toLowerCase())
-    )
-    res.status(200).json(nameP)
-   } else {
-    res.status(404).send("There is no Pokemon whit that name.")
-   }
+    return res.status(200).json({message:"Busqueda por api"},data)
+   } 
+   
+  //res.status(404).send("There is no Pokemon whit that name.")
+  
   }
   catch(error){
       next(error)
   }
 });
-
 /* post pokemons : 
  - Recibe los datos recolectados desde el formulario controlado de la ruta de creación de pokemons por body
   - Crea un pokemon en la base de datos
 */
 router.post('/', async (req, res, next) => {
+  //Ver como llega el types
   const {name, hp, attack, defense, speed, height, weight, sprite, types} = req.body
   try{ 
    const newPoke = await Pokemon.create({
@@ -119,7 +120,8 @@ router.post('/', async (req, res, next) => {
      where: { name: types } //quizas cambiarlo por type, habria que probarlo
    })
    newPoke.addType(dbtype)
-   console.log(newPoke)
+   console.log(types)
+   //res.json(newPoke)?
    res.status(200).send('Pokemon created successfully')
    return newPoke;
   }
