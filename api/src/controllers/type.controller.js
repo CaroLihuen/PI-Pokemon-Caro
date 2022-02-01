@@ -14,7 +14,7 @@ const getTypes =  async(req, res, next)=>{
             name: el}})
         })
      const allTypes = await Type.findAll();
-     res.send(allTypes)
+     res.json(allTypes)
     }
     catch(error){
      return(error)

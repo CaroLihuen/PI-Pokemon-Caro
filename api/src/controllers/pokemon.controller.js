@@ -32,27 +32,28 @@ const getPoke = async(req, res, next)=>{
           height: p.data.height,
           weight: p.data.weight,
           sprite: p.data.sprites.other.dream_world.front_default,
+          types: p.data.types.map((data) => data.type.name).join(", "),
       })
      })
-     return res.send(arrinfo)//array de objetos :)
+     return arrinfo//array de objetos :) sea tanto como send o json
     }
     catch(error){
      return error;
     }
 }
 
-const pokeDb = async()=>{
+const pokeDb = async(res,req)=>{
     try{
      const dt = await Pokemon.findAll({
-         include: Type /*{
-             model: ,
+         include: Type/*{
+             model:  ,
              attributes: ['name'],
              through: {
                  attributes: []
              }
          }*/
      })
-     const pokedb = dt.map((p)=>{
+    const pokedb = dt.map((p)=>{
          return{
             id: p.id,
             name: p.name,
@@ -62,20 +63,22 @@ const pokeDb = async()=>{
             speed: p.speed,
             height: p.height,
             weight: p.weight,
-            sprite: p.sprite
+            sprite: p.sprite,
+            types: p.types.map((e) => e.name)//.join(", ")
          }
-     })
+     }) /**/
+    // console.log(pokedb,dt )return
      return pokedb;
     }
     catch(error){
-     next(error)
+     return error
     }
 }
-//ver bien porque no me deja concatenar!!
+//ver bien porque no me deja concatenar!! =>me dice que api no es iterable
 async function pokemonsAll(){
-    const api = await getPoke();
+    const api = await getPoke();//array de objetos
     const dbs = await pokeDb();
-    const allpokes = api.concat(dbs)
+    const allpokes = [...dbs,...api]
     return allpokes;
 }
 
