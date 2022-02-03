@@ -49,6 +49,7 @@ router.get('/:id', async (req, res, next) => {
            height: pd.height,
            weight: pd.weight,
            sprite: pd.sprites.other.dream_world.front_default,
+           types: pd.types.map((t) => t.type.name).join(', ')
         } /**/
         return res.json(data)//me devuelve un json :)
      } else {

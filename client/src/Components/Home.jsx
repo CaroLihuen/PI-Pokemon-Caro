@@ -9,27 +9,54 @@ import Pagination from './Pagination';
 import Card from './Card';
 import { allPokemon, allTypes } from "../Actions";
 //faltan varias cosas!!
-export default function Home(){
-    const dispatch= useDispatch();
-    const allpoke = useSelector((state)=>state.pokemon)
-    const alltypes = useSelector((state)=>state.types)
-    
-    useEffect(()=>{
+export default function Home() {
+    const dispatch = useDispatch();
+    const allpoke = useSelector((state) => state.pokemon)
+    const alltypes = useSelector((state) => state.types)
+
+    const [currentPage, setPage] = useState(1);
+    const [pokeforPage, setpokeforPage] = useState(12);
+    const indexOfLastPoke = currentPage * pokeforPage;
+    const indexOfFirtsPoke = indexOfLastPoke - pokeforPage;
+    const currentP = allpoke.slice(indexOfFirtsPoke, indexOfLastPoke)
+
+    const page = (numberPage) => {
+        setPage(numberPage)
+    }
+
+    useEffect(() => {
         dispatch(allPokemon())
-    },[dispatch])
+    }, [dispatch])
 
-    useEffect(()=>{
+    useEffect(() => {
         dispatch(allTypes())
-    },[dispatch])
+    }, [dispatch])
 
-    return(
+    return (
         <div>
-         <h1>Videogames</h1>
-         <div>{<Navbar/>}</div>
-         <div>{<Filter/>}</div>
-         <div>{<SearchBar/>}</div>
-         <div>{<Pagination/>}</div>
-         <div>{<Card/>} </div>
+            <h1>Videogames</h1>
+            <div>{<Navbar />}</div>
+            <div>{<Filter />}</div>
+            <div>{<SearchBar />}</div>
+            <div>
+             <Pagination
+              pokeforPage={pokeforPage}
+              allpoke={allpoke.length}
+              page={page}
+             />
+            </div>
+            <div>
+            {currentP.map((p)=>{
+             return(
+              <div key={p.id }>
+                <Link to={'/home/'+ p.id } >
+                 <Card card={currentP} name={p.name} sprite={p.sprite} types={p.types} />
+                </Link>
+              </div>    
+              )
+             })
+            }
+            </div>
         </div>
     )
 }
