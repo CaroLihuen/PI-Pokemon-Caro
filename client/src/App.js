@@ -5,8 +5,7 @@ import Home from './Components/Home';
 import Create from './Components/Create';
 import Landing from './Components/Landing';
 import Detail from './Components/Detail';
-import Navbar from './Components/Navbar';
-//Provar Navbar
+//Listo :)!
 function App() {
   return (
     <div className="App">

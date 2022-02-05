@@ -34,7 +34,6 @@ export default function Home() {
 
     return (
         <div>
-            <h1>Videogames</h1>
             <div>{<Navbar />}</div>
             <div>{<Filter />}</div>
             <div>{<SearchBar />}</div>

@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
 import {useEffect} from "react";
 import { allPokemonbyID } from '../Actions/index'
+import Navbar from './Navbar';
 //ver de agregar cosas Provar! :)
 export default function Detail(){
     const { id } = useParams();
@@ -15,10 +16,7 @@ export default function Detail(){
 
     return(
         <div>
-            <h1>Detail</h1>
-            <Link to='/home' >
-            <button>Home</button>
-            </Link>
+            <div>{<Navbar />}</div>
             { pdetail ? (
              <div>
                <h2>Name: {pdetail.name} </h2>  
