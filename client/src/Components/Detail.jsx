@@ -4,7 +4,7 @@ import { Link, useParams } from "react-router-dom";
 import {useEffect} from "react";
 import { allPokemonbyID } from '../Actions/index'
 import Navbar from './Navbar';
-//ver de agregar cosas Provar! :)
+//ver de agregar cosas Provar! :) // Arreglar types del poke que creo!!
 export default function Detail(){
     const { id } = useParams();
     const dispatch = useDispatch();

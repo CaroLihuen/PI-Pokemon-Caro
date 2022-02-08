@@ -24,18 +24,21 @@ router.get('/', async(req,res,next)=>{
   - Debe traer solo los datos pedidos en la ruta de detalle de pokemon
   - Tener en cuenta que tiene que funcionar tanto para un id de un pokemon existente en pokeapi o uno creado por ustedes
 */ 
-//Anda joya :)
+//Anda joya :)//Cambiar el primer if!! sino me trae un json...
 router.get('/:id', async (req, res, next) => {
     const id = req.params.id
     try{
-     if(id.length >= 36){
+     if(id.length >= 30){
         const pokes = await Pokemon.findOne({
             where: {id: {[Op.eq]:id }},
-            include: {model: Type}
+            include: [Type],/*{
+              model: Type,
+              //attributes: ['name'],
+            }*/
         })
         console.log(pokes)
         if(pokes){
-            return res.json(pokes)
+          return res.json(pokes)
         }
      }else if(id.length<36){
         const pokeid = await axios(`${API_URL}/${id}`)
@@ -105,8 +108,8 @@ router.get('/', async (req, res, next) =>{
 */
 router.post('/', async (req, res, next) => {
   //Ver como llega el types
+   try{ 
   const {name, hp, attack, defense, speed, height, weight, sprite, types} = req.body
-  try{ 
    const newPoke = await Pokemon.create({
     name, 
     hp, 
@@ -117,9 +120,9 @@ router.post('/', async (req, res, next) => {
     weight, 
     sprite
    })
-   let dbtype = await Type.findAll({
+  let dbtype = await Type.findAll({
      where: { name: types } //quizas cambiarlo por type, habria que probarlo
-   })
+   }) /**/
    newPoke.addType(dbtype)
    console.log(types)
    //res.json(newPoke)?

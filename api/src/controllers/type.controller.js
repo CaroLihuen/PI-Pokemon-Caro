@@ -6,11 +6,11 @@ const { API_URL_TYPE }= process.env;
 const getTypes =  async(req, res, next)=>{
     try{
      const typesApi = await axios.get(`${API_URL_TYPE}`)
-     const types = typesApi.data.results.map(t=>t.name)
-     types.map(el=>
+     const types = typesApi.data.results//.map(t=>t.name)
+     types.forEach(el=>
         {Type.findOrCreate({
            where: {
-            name: el}})
+            name: el.name }})
         })
      const allTypes = await Type.findAll();
      res.json(allTypes)

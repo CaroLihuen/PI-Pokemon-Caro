@@ -45,26 +45,20 @@ const getPoke = async(req, res, next)=>{
 const pokeDb = async(res,req)=>{
     try{
      const dt = await Pokemon.findAll({
-        include: {
-             model: Type ,
-             attributes: ['name'],
-             through: {
+        include: [Type]/* {
+            model:   ,
+            attributes: ['name'],
+            through: {
                  attributes: []
-             }
-         }/**/
+             
+        }}*/
      })
     const pokedb = dt.map((p)=>{
+        let json = p.toJSON();
+
          return{
-            id: p.id,
-            name: p.name,
-            hp: p.hp,
-            attack: p.attack,
-            defense:p.defense,
-            speed: p.speed,
-            height: p.height,
-            weight: p.weight,
-            sprite: p.sprite,
-            types: p.types.map((e) => e.name)//.join(", ")
+            ...json,
+            types: p.types.map(type=>type.name)//.map((e) => { return e.name})//.join(", ")
          }
      }) /**/
     // console.log(pokedb,dt )return

@@ -29,7 +29,7 @@ export function allPokemonbyName(name){
 }
 export function newPokemon(payload){
    return async function(dispatch){
-    const info = await axios.post('http://localhost:3001/pokemons',payload)
+    const info = await axios.post('http://localhost:3001/pokemons', payload)
       return dispatch({
           type: "NEW_POKE",
           payload: info.data
@@ -44,4 +44,16 @@ export function allTypes(){
           payload: info.data
       })
    }    
+}
+export function filterPoke(payload){
+   return{
+      type: "FILTER",
+      payload: payload
+   }
+}
+export function filterTypes(payload){
+   return{
+      type: "TYPES_FILTER",
+      payload: payload
+   }
 }

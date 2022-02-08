@@ -1,10 +1,11 @@
 import React from 'react';
 import { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import Navbar from './Navbar';
 import { newPokemon , allTypes } from '../Actions/index';
-//Hay un error , creo que en el handlesubmit, ha que verlo!!
+//Hay un error , creo que en el handlesubmit, hay que verlo!!
+//El problema tiene que ver con lo que se crea, types es un array de objetos con muchas cosas .
 export default function Create(){
    const dispatch = useDispatch();  
    const navigate = useNavigate();
@@ -44,30 +45,31 @@ export default function Create(){
     e.prevenDefault();
     
     const {name, hp, attack, defense, speed, height, weight} = input;
+    
     if(name === undefined || name.length < 3) {
         return alert("Name is invalid");
     }
-    else if(hp === undefined ){ //|| hp < 1
+     if(hp === undefined ){ //|| hp < 1
     return alert('Hp is undefined') 
     }
-    else if(attack === undefined || attack < 1){ 
+     if(attack === undefined || attack < 1){ 
     return alert('Attack is undefined') 
     }
-    else if(defense === undefined || defense < 1){ 
+     if(defense === undefined || defense < 1){ 
     return alert('Defense is undefined') 
     }
-    else if(speed === undefined || speed < 1){ 
+     if(speed === undefined || speed < 1){ 
     return alert('Speed is undefined') 
     }
-    else if(height === undefined || height < 1){ 
+     if(height === undefined || height < 1){ 
     return alert('Height is undefined') 
     }
-    else if(weight === undefined || weight < 1){ 
+     if(weight === undefined || weight < 1){ 
     return alert('Weight is undefined') 
     }
    
    dispatch(newPokemon(input));
-   alert("Pokemon created succesfuly")
+   alert("Pokemon created succesfuly");
    setInput({
     name: '',
     hp: '',
@@ -79,7 +81,6 @@ export default function Create(){
     sprite: '',
     types: []
    });
-
    navigate('/home');
  }
   

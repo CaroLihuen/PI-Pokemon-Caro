@@ -13,7 +13,7 @@ export default function Home() {
     const dispatch = useDispatch();
     const allpoke = useSelector((state) => state.pokemon)
     const alltypes = useSelector((state) => state.types)
-
+    
     const [currentPage, setPage] = useState(1);
     const [pokeforPage, setpokeforPage] = useState(12);
     const indexOfLastPoke = currentPage * pokeforPage;
@@ -36,6 +36,9 @@ export default function Home() {
         <div>
             <div>{<Navbar />}</div>
             <div>{<Filter />}</div>
+            <Link to='/pokemon'> 
+             <button>Add Pokemon</button>
+            </Link>
             <div>{<SearchBar />}</div>
             <div>
              <Pagination

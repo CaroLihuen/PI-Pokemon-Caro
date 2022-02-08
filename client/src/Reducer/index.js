@@ -4,7 +4,9 @@ const initialState = {
     detail: [],
     byname: [],
     newpoke:[],
-    types: []
+    types: [],
+    filter: [],
+    typesfilter: "All"
 }
 
 function rootReducer(state = initialState, action) {
@@ -33,6 +35,19 @@ function rootReducer(state = initialState, action) {
                 ...state,
                 types: action.payload,
             }
+        case "FILTER":
+        let asc = action.payload
+        asc.filter((poke)=> asc ==="All" || !!poke.createdInDb === (asc ==="Created") )    
+        console.log(asc)    
+            return {
+                ...state,
+                filter: asc,
+            }
+        case "TYPES_FILTER":
+            return {
+                ...state,
+                typesfilter: action.payload,
+            }    
         default:
             return state;
     }
