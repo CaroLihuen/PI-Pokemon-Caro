@@ -55,22 +55,20 @@ const pokeDb = async(res,req)=>{
      })
     const pokedb = dt.map((p)=>{
         let json = p.toJSON();
-
          return{
             ...json,
             types: p.types.map(type=>type.name)//.map((e) => { return e.name})//.join(", ")
          }
      }) /**/
-    // console.log(pokedb,dt )return
      return pokedb;
     }
     catch(error){
      return error
     }
 }
-//ver bien porque no me deja concatenar!! =>me dice que api no es iterable
+
 async function pokemonsAll(){
-    const api = await getPoke();//array de objetos
+    const api = await getPoke();
     const dbs = await pokeDb();
     const allpokes = [...dbs,...api]
     return allpokes;
