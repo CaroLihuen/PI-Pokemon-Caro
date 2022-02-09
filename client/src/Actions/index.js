@@ -20,13 +20,14 @@ export function allPokemonbyID(id){
 }
 export function allPokemonbyName(name){
    return async function(dispatch){
-    const info = await axios.get(`http://localhost:3001/pokemons/${name}`)
+    const info = await axios.get(`http://localhost:3001/pokemons/?name=${name}`)
       return dispatch({
           type: "ALL_POKE_NAME",
-          payload: info.data
+          payload: info.data[0]
       })
    }    
 }
+
 export function newPokemon(payload){
    return async function(dispatch){
     const info = await axios.post('http://localhost:3001/pokemons', payload)
@@ -45,15 +46,30 @@ export function allTypes(){
       })
    }    
 }
-export function filterPoke(payload){
+export function filterPoke(payload){//por poke creado o all
    return{
       type: "FILTER",
       payload: payload
    }
 }
-export function filterTypes(payload){
+
+export function filterTypes(payload){//por typo
    return{
       type: "TYPES_FILTER",
+      payload: payload
+   }
+}
+
+export function filterAsc(payload){//por a-z
+   return{
+      type: "FILTER_ASC",
+      payload: payload
+   }
+}
+
+export function filterAttack(payload){//por attack
+   return{
+      type: "FILTER_ATT",
       payload: payload
    }
 }
