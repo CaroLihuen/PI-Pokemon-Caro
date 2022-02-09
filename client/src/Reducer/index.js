@@ -2,7 +2,7 @@
 const initialState = {
     pokemon: [],
     detail: [],
-    byname: [],
+    byname: {},
     newpoke:[],
     types: [],
     filter: [],
@@ -17,10 +17,12 @@ function rootReducer(state = initialState, action) {
                 pokemon: action.payload,
             }
         case "ALL_POKE_ID":
-            return {
+            let aux = action.payload
+            let other = {...aux} //lo onvierte a obj si viene como array
+            return{
                 ...state,
-                detail: action.payload,
-            }
+                detail: other,
+            } 
         case "ALL_POKE_NAME":
             return {
                 ...state,
