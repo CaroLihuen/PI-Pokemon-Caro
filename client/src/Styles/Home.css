@@ -1,0 +1,84 @@
+/*LIST000!!*/
+.Fondo{
+    display: grid;
+}
+.Barra{
+   
+  grid-area: header ;
+  grid-row: inherit;
+}
+.container{
+  flex-wrap: wrap;
+  margin-left: 30px;
+  margin-right: 1px;
+}
+.container__item {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.titulo{
+  display: flex;
+  justify-content: center;
+}
+.addVg{
+  display: flex;
+  justify-content: center;
+}
+.search{
+  display: flex;
+  justify-content: space-around;
+}
+.filtros{
+  display: list-item
+}
+.CadaUno{
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-star
+}
+.paginado{
+  flex-direction: row;
+  align-items: center;
+}
+.button {
+  -webkit-border-radius: 28;
+  -moz-border-radius: 28;
+  border-radius: 28px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 20px;
+  background: #2cba92;
+  padding: 11px 20px 10px 20px;
+  text-decoration: none;
+  border: none;
+  margin-top: 15px;
+}
+.button:hover {
+  background: #a4d1ed;
+  text-decoration: none;
+}
+.reseT{
+  display: flex;
+  justify-content: center;
+}  
+.reset {
+  -webkit-border-radius: 28;
+  -moz-border-radius: 28;
+  border-radius: 28px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 20px;
+  background: #2cba92;
+  padding: 11px 20px 10px 20px;
+  text-decoration: none;
+  border: none;
+  margin-top: 15px;
+}
+  
+.reset:hover {
+  background: #a4d1ed;
+  text-decoration: none;
+}

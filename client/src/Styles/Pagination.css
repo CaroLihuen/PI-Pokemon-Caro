@@ -1,0 +1,31 @@
+/*Listo!!!*/
+.page{
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    
+  }
+  .Paginado{
+    margin-bottom: 5%;
+    flex-direction: row;
+  }
+  
+  .BotonPaginado{
+    -webkit-border-radius: 10;
+    -moz-border-radius: 10;
+    border-radius: 18px;
+    font-family: Arial;
+    color: #ffffff;
+    font-size: 15px;
+    background: #2cba92;
+    padding: 11px 20px 10px 20px;
+    text-decoration: none;
+    border: none;
+    margin-top: 15px;
+    flex-direction: row;
+  }
+  
+  .button:hover {
+    background: #a4d1ed;
+    text-decoration: none;
+  }

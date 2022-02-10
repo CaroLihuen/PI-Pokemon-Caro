@@ -1,0 +1,30 @@
+/* Quedo Joya!! No tocar!*/
+.detail{ 
+    justify-content: center;
+    align-content: center;
+    text-align: center; 
+    position: 0;
+}
+
+.font{
+    text-align: center;
+}
+
+.button {
+    -webkit-border-radius: 28;
+    -moz-border-radius: 28;
+    border-radius: 28px;
+    font-family: Arial;
+    color: #ffffff;
+    font-size: 20px;
+    background: #2cba92;
+    padding: 11px 20px 10px 20px;
+    text-decoration: none;
+    border: none;
+    margin-top: 15px;
+  }
+  
+.button:hover {
+    background: #a4d1ed;
+    text-decoration: none;
+  }
