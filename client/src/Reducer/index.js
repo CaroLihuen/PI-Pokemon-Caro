@@ -2,7 +2,6 @@
 const initialState = {
     pokemon: [],
     detail: {},
-    byname: [],//{}
     newpoke:[],
     types: [],
     filter: [],
@@ -11,54 +10,56 @@ const initialState = {
 
 function rootReducer(state = initialState, action) {
     switch (action.type) {
-        case "ALL_POKE":
+        case "ALL_POKE"://todos los pokes
             return {
                 ...state,
                 pokemon: action.payload,
+                filter: action.payload,
+                typesfilter: action.payload,
             }
-        case "ALL_POKE_ID":
+        case "ALL_POKE_ID"://poke por id
             let aux = action.payload
-           // let other = {...aux} //lo onvierte a obj si viene como array
-            
             return{
                 ...state,
                 detail: aux,
             } 
-        case "ALL_POKE_NAME":
+        case "ALL_POKE_NAME"://poke por name
             let name=action.payload
-            
-            console.log(name)
             return {
                 ...state,
-               byname: name,
+               pokemon: name,
             }
-        case "NEW_POKE":
+        case "NEW_POKE"://nuevos pokes
             return {
                 ...state,
             }
-        case "ALL_TYPES":
+        case "ALL_TYPES": //todos los typos
             return {
                 ...state,
                 types: action.payload,
             }
         case "FILTER": //creados
-        let asc = action.payload
-        asc.filter((poke)=> asc ==="All" || !!poke.createdInDb === (asc ==="Created") )    
-        console.log(asc)    
+        let filt = state.typesfilter
+        let find = action.payload ==="All" ?
+        filt :
+        action.payload === "Created" ?
+        filt.filter((v)=>
+        v.id.toString().length>15) :
+        filt.filter((v)=>
+        v.id.toString().length<15)          
             return {
                 ...state,
-                filter: asc,
+                pokemon: find,
             }
-        case "TYPES_FILTER":
-        let filtert = action.payload ==="All" ?
+        case "TYPES_FILTER": //filtro por typos
+        let filtert = state.pokemon === "All" ?
         state.pokemon :
-        state.pokemon.filter(el=>el.types === action.payload)   
-        console.log( filtert) 
-            return {
+        state.pokemon.filter(el=>el.types === action.payload )
+        return {
                 ...state,
-                pokemon: filtert,
+                pokemon: filtert
             }
-        case "FILTER_ASC":
+        case "FILTER_ASC"://filtro po az/za
             let Asc = action.payload === "A-Z" ?
             state.pokemon.sort((a,b)=>{
                 if(a.name.toUpperCase() > b.name.toUpperCase()){ return 1}
@@ -74,7 +75,7 @@ function rootReducer(state = initialState, action) {
                 ...state,
                 pokemon: Asc,
             }   
-        case "FILTER_ATT":
+        case "FILTER_ATT"://filtro por mayor o menor attaque
             let order = action.payload === "Least" ?
             state.pokemon.sort((a,b)=>{
                 if(a.attack > b.attack){ return 1}

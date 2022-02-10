@@ -49,7 +49,7 @@ export default function Home() {
 
     function handleCreate(e){//creado o api o all
         e.preventDefault();
-        dispatch()
+        dispatch(filterPoke(e.target.value))
         setPage(1)
     }
     
@@ -67,13 +67,13 @@ export default function Home() {
 
     return (
         <div>
-            <div>{<Navbar/>}</div>
+            <div >{<Navbar/>}</div>
             <div>
              <h4>Filter by Existing or Created</h4>
              <div>
-              <select>
-               <option>All Pokemons</option>
-               <option>Created</option>      
+              <select onChange={(e)=> handleCreate(e) }>
+               <option value="All" >All Pokemons</option>
+               <option value="Created" >Created</option>      
               </select>   
              </div>
             </div>
@@ -111,7 +111,7 @@ export default function Home() {
             <Link to='/pokemon'> 
              <button>Add Pokemon</button>
             </Link>
-            <div>{<SearchBar />}</div>
+            <div className="search">{<SearchBar />}</div>
             <div>
              <Pagination
               pokeforPage={pokeforPage}

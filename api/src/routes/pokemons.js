@@ -22,9 +22,10 @@ router.get('/:id', async (req, res, next) => {
     try{
      if(id.length >=30){
         let aux = await datas.filter((e)=>e.id === id )
-        console.log(aux)
+        let obj = {...aux}
+        console.log(obj)
         if(aux){
-          return res.json(aux)
+          return res.json(obj[0])
         }else {
           return res.status(404).send("There is no pokemon with that ID")
         } 

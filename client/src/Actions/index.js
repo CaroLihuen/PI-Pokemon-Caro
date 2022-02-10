@@ -23,7 +23,7 @@ export function allPokemonbyName(name){
     const info = await axios.get(`http://localhost:3001/pokemons/?name=${name}`)
       return dispatch({
           type: "ALL_POKE_NAME",
-          payload: info.data[0]
+          payload: info.data
       })
    }    
 }
