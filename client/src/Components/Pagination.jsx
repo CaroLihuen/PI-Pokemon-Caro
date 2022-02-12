@@ -1,4 +1,5 @@
 import React from 'react';
+import '../Styles/Pagination.css';
 //Falta logica y conectarlo al home
 /* Paginado para ir buscando y mostrando los siguientes pokemons, 12 pokemons por pagina. */
 export default function Pagination({allpoke, pokeforPage, page }) {

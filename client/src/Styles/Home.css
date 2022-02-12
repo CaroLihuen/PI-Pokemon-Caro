@@ -1,7 +1,6 @@
-/*LIST000!!*/
+/*LIST000!!
 .Fondo{
-    display: grid;
-}
+}*/
 .Barra{
    
   grid-area: header ;
@@ -9,8 +8,9 @@
 }
 .container{
   flex-wrap: wrap;
-  margin-left: 30px;
   margin-right: 1px;
+  justify-content: center;
+  text-decoration: none
 }
 .container__item {
   display: flex;
@@ -18,11 +18,9 @@
   justify-content: center;
   padding-left: 10px;
   padding-right: 10px;
+  text-decoration: none
 }
-.titulo{
-  display: flex;
-  justify-content: center;
-}
+
 .addVg{
   display: flex;
   justify-content: center;
@@ -81,4 +79,7 @@
 .reset:hover {
   background: #a4d1ed;
   text-decoration: none;
+}
+.card{
+  text-decoration: none
 }

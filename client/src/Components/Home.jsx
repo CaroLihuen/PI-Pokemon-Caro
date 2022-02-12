@@ -2,12 +2,12 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import Filter from './Filter';
 import SearchBar from './SearchBar';
 import Navbar from './Navbar';
 import Pagination from './Pagination';
 import Card from './Card';
 import { allPokemon, allTypes, filterAsc, filterAttack, filterTypes, filterPoke } from "../Actions";
+import '../Styles/Home.css';
 //faltan varias cosas!!
 export default function Home() {
     const dispatch = useDispatch();
@@ -66,10 +66,13 @@ export default function Home() {
     }
 
     return (
-        <div>
-            <div >{<Navbar/>}</div>
+        <div className="Fondo">
+         <div className="Barra">
+            <div>{<Navbar/>}</div>
+            <div className="filtros" > 
+            <div className="CadaUno">
             <div>
-             <h4>Filter by Existing or Created</h4>
+             <h4 className="Subtitulo">Filter by Existing or Created</h4>
              <div>
               <select onChange={(e)=> handleCreate(e) }>
                <option value="All" >All Pokemons</option>
@@ -78,7 +81,7 @@ export default function Home() {
              </div>
             </div>
             <div>
-             <h4>Filter by alphabet</h4>
+             <h4 className="Subtitulo">Filter by alphabet</h4>
              <div>
               <select onChange={(e)=> handleAsc(e) } >
                <option value="A-Z" >A-Z</option>
@@ -87,7 +90,7 @@ export default function Home() {
              </div>
             </div>
             <div>
-             <h4>Filter by attack</h4>
+             <h4 className="Subtitulo">Filter by attack</h4>
              <div>
               <select onChange={(e)=> handleAttack(e) }>
                <option value="Most" > Most</option>
@@ -96,7 +99,7 @@ export default function Home() {
              </div>
             </div>
             <div>
-             <h4>Filter by Type</h4>
+             <h4 className="Subtitulo">Filter by Type</h4>
              <div>
               <select onChange={(e)=>handleTypes(e) } >
                  {/* <option>All</option>*/}
@@ -108,23 +111,30 @@ export default function Home() {
               </select>   
              </div>
             </div>
+            </div>
+            <div className="addVg"> 
             <Link to='/pokemon'> 
-             <button>Add Pokemon</button>
+             <button className="button">Add Pokemon</button>
             </Link>
+            </div>
             <div className="search">{<SearchBar />}</div>
-            <div>
+             
+            </div>
+           </div>
+            <div className="paginado">
              <Pagination
               pokeforPage={pokeforPage}
               allpoke={allpoke.length}
               page={page}
              />
             </div>
-            <div>
+            <div className="container">
             {currentP.map((p)=>{
              return(
               <div key={p.id }>
-                <Link to={'/home/'+ p.id } >
-                 <Card card={currentP} name={p.name} sprite={p.sprite} types={p.types} />
+                <Link  className="card" to={'/home/'+ p.id } >
+                 <Card className="card" card={currentP} name={p.name} sprite={p.sprite} 
+                 attack={p.attack}  types={p.types} />
                 </Link>
               </div>    
               )

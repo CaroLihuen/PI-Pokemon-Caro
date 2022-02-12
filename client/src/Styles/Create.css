@@ -3,7 +3,8 @@
  background-image: linear-gradient(to top, #5ee7df 0%, #b490ca 100%);
  border: 3px solid rgba(0, 0, 0.3);
  border-radius: 7px;
- margin: 150px
+ margin: 150px;
+ margin-top: 50px
 }
 .modal__header {
 display: flex;

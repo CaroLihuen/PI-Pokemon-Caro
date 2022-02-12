@@ -1,1 +1,29 @@
 /*Falta este*/
+.Nav{
+  display: flex;
+  justify-content: space-evenly;
+  border-radius: #ffffff;
+}
+.titulo{
+  display: flex;
+  justify-content: center;
+}
+.button {
+  justify-content: center;
+    -webkit-border-radius: 28;
+    -moz-border-radius: 28;
+    border-radius: 28px;
+    font-family: Arial;
+    color: #ffffff;
+    font-size: 20px;
+    background: #2cba92;
+    padding: 11px 20px 10px 20px;
+    text-decoration: none;
+    border: none;
+    margin-top: 15px;
+  }
+  
+.button:hover {
+    background: #a4d1ed;
+    text-decoration: none;
+  }

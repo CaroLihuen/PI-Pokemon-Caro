@@ -1,7 +1,8 @@
 import React from 'react';
 import { useState } from "react";
 import { useDispatch , useSelector } from "react-redux";
-import { allPokemonbyName } from '../Actions/index'
+import { allPokemonbyName } from '../Actions/index';
+import '../Styles/SearchBar.css';
 //Faltan varias cosas!!
 
 export default function SearchBar(){
@@ -22,9 +23,9 @@ export default function SearchBar(){
     }
 
     return(
-        <div>
-            <input id="search" type="text" placeholder="Search by name" onChange={(e)=>handleChange(e) } />
-            <button type="submit" onClick={(e)=>{handleSubmit(e)}} >Search</button>
+        <div className="ContenedorSearchBar">
+            <input className="InputSearchBar" id="search" type="text" placeholder="Search by name" onChange={(e)=>handleChange(e) } />
+            <button className="botonSearchBar" type="submit" onClick={(e)=>{handleSubmit(e)}} >Search</button>
         </div>
     )
 

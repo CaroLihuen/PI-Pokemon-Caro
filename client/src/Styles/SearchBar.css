@@ -1,9 +1,7 @@
 .ContenedorSearchBar{
-
     margin-top: 3%;
     margin-bottom: 3%;
     align-items: baseline;
-
 }
 
 .InputSearchBar{
@@ -16,12 +14,9 @@
     font-size: 18px;
     font-family:'Red Hat Display', sans-serif;
     box-shadow: 1px 1px 18px #00A2F0;
- 
-
 }
 
 .botonSearchBar{
-
         padding: 0.9em 2.5em;
         font-size: 13px;
         text-transform: uppercase;
@@ -37,7 +32,6 @@
         outline: none;
         margin-left: 0.7em;
         font-family:'Red Hat Display', sans-serif;
-
 }
 
 .botonSearchBar:hover {

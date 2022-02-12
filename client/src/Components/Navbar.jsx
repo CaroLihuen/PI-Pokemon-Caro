@@ -1,12 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import '../Styles/Navbar.css';
 //ver de agregar cosas quizas alguna imagen o colores o algo asi..
 export default function Navbar(){
     return(
-        <div>
-            <h1>Pokemon</h1>
+        <div className="Nav" >
+            <h1 className="titulo">Pokemon</h1>
             <Link to='/home' >
-            <button>Home</button>
+            <button className="button">Home</button>
             </Link>
         </div>
     )

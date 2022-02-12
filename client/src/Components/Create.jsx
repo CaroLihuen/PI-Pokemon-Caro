@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import Navbar from './Navbar';
 import { newPokemon , allTypes } from '../Actions/index';
+import '../Styles/Create.css';
 //Hay un error , creo que en el handlesubmit, hay que verlo!!
 //El problema tiene que ver con lo que se crea, types es un array de objetos con muchas cosas .
 export default function Create(){
@@ -92,45 +93,48 @@ export default function Create(){
   }
 
    return(
-        <div>
-            <div>{<Navbar />}</div>
+     <div>
+     <div >{<Navbar />}</div>
+        <div className="modal">
+            <div className="modal__header">
             <h1>Create new Pokemon</h1>
-            <form onSubmit={(e)=>handleSubmit(e) } >
-             <div>
+            </div>
+            <form className="form" onSubmit={(e)=>handleSubmit(e) } >
+             <div className="name">
               <label>Name: </label>
-              <input type="text" placeholder="Name" value={input.name} name="name" onChange={(e)=>handleChange(e)} ></input>   
+              <input className="input" type="text" placeholder="Name" value={input.name} name="name" onChange={(e)=>handleChange(e)} ></input>   
              </div> 
-             <div>
+             <div className="name">
               <label>Hp:</label>
-              <input placeholder='Hp' type="number" value={input.hp} name="hp" onChange={(e)=>handleChange(e)}></input>   
+              <input className="input" placeholder='Hp' type="number" value={input.hp} name="hp" onChange={(e)=>handleChange(e)}></input>   
              </div>
-             <div>
-              <label> Attack: </label>
-              <input placeholder='Attack' type="number" value={input.attack} name="attack" onChange={(e)=>handleChange(e)}></input>   
+             <div className="name">
+              <label > Attack: </label>
+              <input className="input" placeholder='Attack' type="number" value={input.attack} name="attack" onChange={(e)=>handleChange(e)}></input>   
              </div>
-             <div>
+             <div className="name">
               <label>Defense: </label>
-              <input placeholder='Defense' type="number" value={input.defense} name="defense" onChange={(e)=>handleChange(e)} ></input>   
+              <input className="input" placeholder='Defense' type="number" value={input.defense} name="defense" onChange={(e)=>handleChange(e)} ></input>   
              </div>
-             <div>
+             <div className="name">
               <label>Speed: </label>
-              <input placeholder='Speed' type="number" value={input.speed} name="speed" onChange={(e)=>handleChange(e)}></input>   
+              <input className="input" placeholder='Speed' type="number" value={input.speed} name="speed" onChange={(e)=>handleChange(e)}></input>   
              </div>
-             <div>
+             <div className="name">
               <label>Height: </label>
-              <input placeholder='Height' type="number" value={input.height} name="height" onChange={(e)=>handleChange(e)}></input>   
+              <input className="input" placeholder='Height' type="number" value={input.height} name="height" onChange={(e)=>handleChange(e)}></input>   
              </div>
-             <div>
+             <div className="name">
               <label>Weight:</label>
-              <input placeholder='weight' type="number" value={input.weight} name="weight" onChange={(e)=>handleChange(e)}></input>   
+              <input className="input" placeholder='weight' type="number" value={input.weight} name="weight" onChange={(e)=>handleChange(e)}></input>   
              </div>
-             <div>
-              <label>Sprite:</label>
-              <input placeholder='Image/Url' type="text" value={input.sprite} name="sprite" onChange={(e)=>handleChange(e)}></input>   
+             <div className="name">
+              <label >Sprite:</label>
+              <input className="input" placeholder='Image/Url' type="text" value={input.sprite} name="sprite" onChange={(e)=>handleChange(e)}></input>   
              </div>  
-             <div>
-              <label>Types:</label>
-              <select name="types" onChange={(e) => handleSelect(e)}>
+             <div className="name">
+              <label >Types:</label>
+              <select className="select" name="types" onChange={(e) => handleSelect(e)}>
                 Types:
                 { alltypes.map((t)=>(
                    <option key={t.id} value={t.name}> {t.name}</option>  
@@ -139,13 +143,17 @@ export default function Create(){
              </div> 
              {input.types.map((el) => (
               <div key={el}>
-               <p>{el}</p>
+               <p className='result'>{el}</p>
                <button onClick={() => handleDelete(el)}>x</button>
              </div>
               ))}
              <br/>
-             <button type="submit">Create Pokemon</button>
+             <div className="name">
+              <button className="button" type="submit">Create Pokemon</button>
+             </div>
+             
             </form>
+        </div>
         </div>
     )
 }
