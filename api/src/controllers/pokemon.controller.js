@@ -57,7 +57,7 @@ const pokeDb = async(res,req)=>{
         let json = p.toJSON();
          return{
             ...json,
-            types: p.types.map(type=>type.name)//.map((e) => { return e.name})//.join(", ")
+            types: p.types.map(type=>type.name).join(", ")//.map((e) => { return e.name})//
          }
      }) /**/
      return pokedb;

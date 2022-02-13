@@ -1,5 +1,5 @@
 import axios from 'axios';
-//faltan filtros!!
+
 export function allPokemon(){
    return async function(dispatch){
     const info = await axios.get('http://localhost:3001/pokemons')
@@ -33,7 +33,7 @@ export function newPokemon(payload){
     const info = await axios.post('http://localhost:3001/pokemons', payload)
       return dispatch({
           type: "NEW_POKE",
-          payload: info.data
+          payload: info
       })
    }    
 }

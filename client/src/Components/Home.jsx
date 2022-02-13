@@ -8,7 +8,7 @@ import Pagination from './Pagination';
 import Card from './Card';
 import { allPokemon, allTypes, filterAsc, filterAttack, filterTypes, filterPoke } from "../Actions";
 import '../Styles/Home.css';
-//faltan varias cosas!!
+//Listo!!
 export default function Home() {
     const dispatch = useDispatch();
     const allpoke = useSelector((state) => state.pokemon)
@@ -56,7 +56,7 @@ export default function Home() {
     function handleTypes(e){//por types
         e.preventDefault();
         dispatch(filterTypes(e.target.value))
-        //setPage(1)
+        setPage(1)
     }
 
     function handleClick(e){
@@ -75,7 +75,8 @@ export default function Home() {
              <h4 className="Subtitulo">Filter by Existing or Created</h4>
              <div>
               <select onChange={(e)=> handleCreate(e) }>
-               <option value="All" >All Pokemons</option>
+               <option value="" >All Pokemons</option>
+               <option value="All" >Api</option>
                <option value="Created" >Created</option>      
               </select>   
              </div>
@@ -84,6 +85,7 @@ export default function Home() {
              <h4 className="Subtitulo">Filter by alphabet</h4>
              <div>
               <select onChange={(e)=> handleAsc(e) } >
+               <option value="" >All</option>   
                <option value="A-Z" >A-Z</option>
                <option value="Z-A" >Z-A</option>      
               </select>   
@@ -93,6 +95,7 @@ export default function Home() {
              <h4 className="Subtitulo">Filter by attack</h4>
              <div>
               <select onChange={(e)=> handleAttack(e) }>
+               <option value="" >All</option>      
                <option value="Most" > Most</option>
                <option value="Least">Least</option>      
               </select>   
@@ -101,11 +104,10 @@ export default function Home() {
             <div>
              <h4 className="Subtitulo">Filter by Type</h4>
              <div>
-              <select onChange={(e)=>handleTypes(e) } >
-                 {/* <option>All</option>*/}
+              <select onChange={(e)=>handleTypes(e) }>
                  Types:
                  <option key="All" value="All">All</option>
-                { alltypes.map((t)=>{
+                { alltypes?.map((t)=>{
                  return  <option key={t.id} value={t.name}> {t.name}</option>  
                 })} 
               </select>   

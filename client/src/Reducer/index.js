@@ -2,7 +2,6 @@
 const initialState = {
     pokemon: [],
     detail: {},
-    newpoke:[],
     types: [],
     filter: [],
     typesfilter: [],
@@ -54,7 +53,8 @@ function rootReducer(state = initialState, action) {
         case "TYPES_FILTER": //filtro por typos
         let filtert = state.pokemon === "All" ?
         state.pokemon :
-        state.pokemon.filter(el=>el.types === action.payload )
+        state.pokemon.filter((el)=>el.types.includes(action.payload))
+        console.log(filtert)//.includes(el)
         return {
                 ...state,
                 pokemon: filtert

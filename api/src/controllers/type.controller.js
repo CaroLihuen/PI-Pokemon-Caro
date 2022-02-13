@@ -12,7 +12,9 @@ const getTypes =  async(req, res, next)=>{
            where: {
             name: el.name }})
         })
-     const allTypes = await Type.findAll();
+     const allTypes = await Type.findAll({
+         attributes: ['id','name']
+     });
      res.json(allTypes)
     }
     catch(error){

@@ -5,8 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Navbar from './Navbar';
 import { newPokemon , allTypes } from '../Actions/index';
 import '../Styles/Create.css';
-//Hay un error , creo que en el handlesubmit, hay que verlo!!
-//El problema tiene que ver con lo que se crea, types es un array de objetos con muchas cosas .
+// creaaa!! arreglar validaciones!!
 export default function Create(){
    const dispatch = useDispatch();  
    const navigate = useNavigate();
@@ -43,29 +42,28 @@ export default function Create(){
    } 
 
    function handleSubmit(e){
-    e.prevenDefault();
-    
+    e.preventDefault();
     const {name, hp, attack, defense, speed, height, weight} = input;
     
-    if(name === undefined || name.length < 3) {
+    if(name === undefined ) {
         return alert("Name is invalid");
     }
      if(hp === undefined ){ //|| hp < 1
     return alert('Hp is undefined') 
     }
-     if(attack === undefined || attack < 1){ 
+     if(attack === undefined ){ 
     return alert('Attack is undefined') 
     }
-     if(defense === undefined || defense < 1){ 
+     if(defense === undefined ){ 
     return alert('Defense is undefined') 
     }
-     if(speed === undefined || speed < 1){ 
+     if(speed === undefined ){ 
     return alert('Speed is undefined') 
     }
-     if(height === undefined || height < 1){ 
+     if(height === undefined ){ 
     return alert('Height is undefined') 
     }
-     if(weight === undefined || weight < 1){ 
+     if(weight === undefined ){ 
     return alert('Weight is undefined') 
     }
    
@@ -106,27 +104,27 @@ export default function Create(){
              </div> 
              <div className="name">
               <label>Hp:</label>
-              <input className="input" placeholder='Hp' type="number" value={input.hp} name="hp" onChange={(e)=>handleChange(e)}></input>   
+              <input className="input" min='0' max='999' placeholder='Hp' type="number" value={input.hp} name="hp" onChange={(e)=>handleChange(e)}></input>   
              </div>
              <div className="name">
               <label > Attack: </label>
-              <input className="input" placeholder='Attack' type="number" value={input.attack} name="attack" onChange={(e)=>handleChange(e)}></input>   
+              <input className="input" min='0' max='999' placeholder='Attack' type="number" value={input.attack} name="attack" onChange={(e)=>handleChange(e)}></input>   
              </div>
              <div className="name">
               <label>Defense: </label>
-              <input className="input" placeholder='Defense' type="number" value={input.defense} name="defense" onChange={(e)=>handleChange(e)} ></input>   
+              <input className="input" min='0' max='999' placeholder='Defense' type="number" value={input.defense} name="defense" onChange={(e)=>handleChange(e)} ></input>   
              </div>
              <div className="name">
               <label>Speed: </label>
-              <input className="input" placeholder='Speed' type="number" value={input.speed} name="speed" onChange={(e)=>handleChange(e)}></input>   
+              <input className="input" min='0' max='999' placeholder='Speed' type="number" value={input.speed} name="speed" onChange={(e)=>handleChange(e)}></input>   
              </div>
              <div className="name">
               <label>Height: </label>
-              <input className="input" placeholder='Height' type="number" value={input.height} name="height" onChange={(e)=>handleChange(e)}></input>   
+              <input className="input" min='0' max='999' placeholder='Height' type="number" value={input.height} name="height" onChange={(e)=>handleChange(e)}></input>   
              </div>
              <div className="name">
               <label>Weight:</label>
-              <input className="input" placeholder='weight' type="number" value={input.weight} name="weight" onChange={(e)=>handleChange(e)}></input>   
+              <input className="input" min='0' max='999' placeholder='weight' type="number" value={input.weight} name="weight" onChange={(e)=>handleChange(e)}></input>   
              </div>
              <div className="name">
               <label >Sprite:</label>
