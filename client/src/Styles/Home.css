@@ -30,7 +30,9 @@
   justify-content: space-around;
 }
 .filtros{
-  display: list-item
+  display: list-item;
+  margin-inline-end: 10px;
+  margin-inline-start: 10px;
 }
 .CadaUno{
   display: flex;

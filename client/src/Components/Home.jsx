@@ -53,7 +53,7 @@ export default function Home() {
         setPage(1)
     }
     
-    function handleTypes(e){//por types
+    function handleTypes(e){//por types:
         e.preventDefault();
         dispatch(filterTypes(e.target.value))
         setPage(1)

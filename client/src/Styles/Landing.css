@@ -1,6 +1,13 @@
 .fondo{
   background-size: linear-gradient(180deg, #2af598 0%, #009efd 100%);;
   justify-content: center;
+  background-image: url('https://i.pinimg.com/originals/b7/d9/e7/b7d9e7721c7964d3b7a1ca115a26db17.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  height: 150vh;
+  position: relative;
+  top: -22px;
 }
 .btn{
   display: flex;
@@ -28,4 +35,6 @@
 }
 .center{
   align-items: center;
+  font-style: revert;
+  color: aquamarine;
 }  
