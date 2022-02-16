@@ -45,26 +45,26 @@ export default function Create(){
     e.preventDefault();
     const {name, hp, attack, defense, speed, height, weight} = input;
     
-    if(name === undefined ) {
-        return alert("Name is invalid");
+    if(name === undefined || !name ) {
+        return alert("Name is invalid or name is invalid");
     }
-     if(hp === undefined ){ //|| hp < 1
-    return alert('Hp is undefined') 
+     if(hp === undefined || !hp  ){ //
+    return alert('Hp is undefined or hp is invalid') 
     }
-     if(attack === undefined ){ 
-    return alert('Attack is undefined') 
+     if(attack === undefined || !attack){ 
+    return alert('Attack is undefined or attack is invalid') 
     }
-     if(defense === undefined ){ 
-    return alert('Defense is undefined') 
+     if(defense === undefined || !defense ){ 
+    return alert('Defense is undefined or defense is invalid') 
     }
-     if(speed === undefined ){ 
-    return alert('Speed is undefined') 
+     if(speed === undefined || !speed ){ 
+    return alert('Speed is undefined or speed is invalid') 
     }
-     if(height === undefined ){ 
-    return alert('Height is undefined') 
+     if(height === undefined  || !height ){ 
+    return alert('Height is undefined or height is invalid') 
     }
-     if(weight === undefined ){ 
-    return alert('Weight is undefined') 
+     if(weight === undefined  || !weight ){ 
+    return alert('Weight is undefined or weight is invalid') 
     }
    
    dispatch(newPokemon(input));
