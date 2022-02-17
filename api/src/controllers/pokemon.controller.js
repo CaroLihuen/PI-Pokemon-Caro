@@ -1,8 +1,7 @@
 require('dotenv').config();
 const { Type, Pokemon } = require('../db.js');
-const axios = require('axios')
-const { Op } = require('sequelize')
-const { API_URL, API_URL_ID , API_URL_NAME }= process.env;
+const axios = require('axios');
+const { API_URL }= process.env;
 
 const getPoke = async(req, res, next)=>{
     try{
@@ -42,16 +41,10 @@ const getPoke = async(req, res, next)=>{
     }
 }
 
-const pokeDb = async(res,req)=>{
+const pokeDb = async()=>{
     try{
      const dt = await Pokemon.findAll({
-        include: [Type]/* {
-            model:   ,
-            attributes: ['name'],
-            through: {
-                 attributes: []
-             
-        }}*/
+        include: [Type]
      })
     const pokedb = dt.map((p)=>{
         let json = p.toJSON();
@@ -59,7 +52,7 @@ const pokeDb = async(res,req)=>{
             ...json,
             types: p.types.map(type=>type.name).join(", ")//.map((e) => { return e.name})//
          }
-     }) /**/
+     }) 
      return pokedb;
     }
     catch(error){
@@ -79,5 +72,4 @@ async function pokemonsAll(){
 module.exports={
     getPoke,
     pokemonsAll,
-    //funcion
 }

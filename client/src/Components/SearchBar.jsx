@@ -3,22 +3,26 @@ import { useState } from "react";
 import { useDispatch , useSelector } from "react-redux";
 import { allPokemonbyName } from '../Actions/index';
 import '../Styles/SearchBar.css';
-//Faltan varias cosas!!
 
 export default function SearchBar(){
     const dispatch = useDispatch();
     const [ name, setName ] = useState(" ");
     const pokes = useSelector((state)=>state.pokemons)
-    //console.log(pokes)
+   
     function handleChange(e){
         e.preventDefault();
         setName(e.target.value)
-        //console.log(e.target.value)
     }
 
     function handleSubmit(e){
         e.preventDefault();
+        const n = name
+        if( !n || n.length === undefined || n.length <= 1 ) {//  
+            setName("")   
+            return alert("Name is invalid or require name completed");
+        }else { 
         dispatch(allPokemonbyName(name))
+        }
         setName("");
     }
 

@@ -119,7 +119,32 @@ router.post('/', async (req, res, next) => {
     next(error)    
   }
 });
+/*
+router.put('/:id', async (req, res) => {
+  const {id}= req.params
+  const poke1 = req.body
+  try{
+   let aux = await Pokemon.update(poke1, {
+     where: {id: id}
+   })
+   return res.json({cambiado:true})
+  }
+  catch(error){
+    next(error)
+  }
+});
 
-
+router.delete('/:id', async (req, res) => {
+  const {id}= req.params
+  try{
+   let aux = await Pokemon.destroy({
+     where: {id: id}
+   })
+   return res.json({borrado:true})
+  }
+  catch(error){
+    next(error)
+  }
+});*/
 
 module.exports = router;

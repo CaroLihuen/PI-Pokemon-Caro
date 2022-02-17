@@ -74,9 +74,9 @@ export default function Home() {
             <div>
              <h4 className="Subtitulo">Filter by Existing or Created</h4>
              <div>
-              <select onChange={(e)=> handleCreate(e) }>
-               <option value="" >All Pokemons</option>
-               <option value="All" >Api</option>
+              <select onChange={(e)=> handleCreate(e)}>
+               <option value="All" >All Pokemons</option>
+               <option value="" >Api</option>
                <option value="Created" >Created</option>      
               </select>   
              </div>
