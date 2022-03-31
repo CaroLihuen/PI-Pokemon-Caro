@@ -6,7 +6,7 @@
     
   }
   .Paginado{
-    margin-bottom: 5%;
+    /*margin-bottom: 5%;*/
     flex-direction: row;
   }
   
@@ -23,6 +23,7 @@
     border: none;
     margin-top: 15px;
     flex-direction: row;
+    margin: 2px;
   }
   
   .button:hover {

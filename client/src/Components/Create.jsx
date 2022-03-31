@@ -5,7 +5,14 @@ import { useDispatch, useSelector } from "react-redux";
 import Navbar from './Navbar';
 import { newPokemon , allTypes } from '../Actions/index';
 import '../Styles/Create.css';
-// creaaa!! arreglar validaciones!!
+// creaaa!! Provar errors y funcion validate
+function validate(input){
+    let errors = {}
+    if(!input.name){
+     errors.name = "Name is require";
+    }
+   }
+   
 export default function Create(){
    const dispatch = useDispatch();  
    const navigate = useNavigate();
@@ -27,11 +34,17 @@ export default function Create(){
     types: []
    })
 
+   const [errors, setErrors] = useState({});
+   
    function handleChange(e){
     setInput({
       ...input,
       [e.target.name]: e.target.value,
     })
+    setErrors(validate({
+      ...input,
+      [e.target.name]: e.target.value,
+    }))
    }
 
    function handleSelect(e){
@@ -101,6 +114,9 @@ export default function Create(){
              <div className="name">
               <label>Name: </label>
               <input className="input" type="text" placeholder="Name" value={input.name} name="name" onChange={(e)=>handleChange(e)} ></input>   
+             { /*
+                errors.name && ( <p className='error'>{errors.name}</p>)
+              */}
              </div> 
              <div className="name">
               <label>Hp:</label>

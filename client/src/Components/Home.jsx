@@ -119,8 +119,9 @@ export default function Home() {
              <button className="button">Add Pokemon</button>
             </Link>
             </div>
-            <div className="search">{<SearchBar />}</div>
-             
+            <div className="search">
+             {<SearchBar />}
+            </div>
             </div>
            </div>
             <div className="paginado">
