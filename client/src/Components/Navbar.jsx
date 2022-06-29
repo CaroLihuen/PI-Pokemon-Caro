@@ -7,7 +7,7 @@ export default function Navbar(){
         <div className="Nav" >
             <h1 className="titulo">Pokemon</h1>
             <Link to='/home' >
-            <button className="button">Home</button>
+            <button className="btn_Nav">Home</button>
             </Link>
         </div>
     )

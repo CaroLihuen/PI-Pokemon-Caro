@@ -8,7 +8,7 @@ import Pagination from './Pagination';
 import Card from './Card';
 import { allPokemon, allTypes, filterAsc, filterAttack, filterTypes, filterPoke } from "../Actions";
 import '../Styles/Home.css';
-//Listo!!
+//Listo!! Falta estilos
 export default function Home() {
     const dispatch = useDispatch();
     const allpoke = useSelector((state) => state.pokemon)
@@ -67,7 +67,7 @@ export default function Home() {
 
     return (
         <div className="Fondo">
-         <div className="Barra">
+         <section className="Barra">
             <div>{<Navbar/>}</div>
             <div className="filtros" > 
             <div className="CadaUno">
@@ -123,27 +123,33 @@ export default function Home() {
              {<SearchBar />}
             </div>
             </div>
-           </div>
-            <div className="paginado">
+         </section>
+         <section className="paginado">
              <Pagination
               pokeforPage={pokeforPage}
               allpoke={allpoke.length}
               page={page}
              />
-            </div>
-            <div className="container">
+         </section>
+         <section className="container_home">
             {currentP.map((p)=>{
              return(
-              <div key={p.id }>
-                <Link  className="card" to={'/home/'+ p.id } >
-                 <Card className="card" card={currentP} name={p.name} sprite={p.sprite} 
+              <div className="card_home" key={p.id }>
+                <Link  className="card_home" to={'/home/'+ p.id } >
+                 <Card  card={currentP} name={p.name} sprite={p.sprite} 
                  attack={p.attack}  types={p.types} />
                 </Link>
               </div>    
               )
              })
             }
-            </div>
+         </section>
+         <footer>
+             <details>
+               <summary>Thank you for your visit!</summary>
+                <p><Link to={'/home'}>Home</Link></p>
+             </details>
+         </footer>
         </div>
     )
 }

@@ -1,89 +1,110 @@
-.modal {
-    /* Esta!! /// Quizas agregarle alguna imagen */
- background-image: linear-gradient(to top, #5ee7df 0%, #b490ca 100%);
+header{
+    background-color: #2cba92;
+    
+}
+
+.btnheader{
+    margin-top: 20px;
+    justify-content: center;
+    -webkit-border-radius: 28;
+    -moz-border-radius: 28;
+    border-radius: 28px;
+    font-family: 'Merri-BoldItalic';
+    color: rgb(25 81 107);;
+    font-size: 20px;
+    background: rgb(246 249 248);
+    padding: 11px 20px 10px 20px;
+    text-decoration: none;
+    border: none;
+    margin-top: 15px;
+}
+.btnheader:hover{
+    background: #a4d1ed;
+    text-decoration: none;
+}
+
+.modal{
+background-color: #dbede2;/*Me gusta el color :)*/
  border: 3px solid rgba(0, 0, 0.3);
  border-radius: 7px;
- margin: 150px;
- margin-top: 50px
+ margin: 50px 170px 72px 170px;
+ margin-top: 50px;
+ padding: 20px;
+ font-family: 'Merri-Bold';
 }
+
 .modal__header {
 display: flex;
 justify-content: center;
-columns: center;
+margin: 10px;
 }
+
 .form{
     display: contents;
 }
 
-.modal__footer {
- display: flex;
- justify-content: center;
- border-top: 1px solid rgba(0, 0, 0.3);
- padding-left: 80px;
- padding-right: 80px;
- margin-bottom: 30px;
-}
-
-.tittle{
- display: flex;/**/
- justify-content: center;    
-}
-
 .name{
- /*display: flex;*/
- justify-content: center;
- columns: center;
- text-align: center;
- top:2px;
- padding-top: 2px;
+ padding-top: 10px;
  padding-bottom: 2px;
+ text-align: center;
 }
+
 .select{
  justify-content: center;
- columns: center;
  border: 1px solid;
  padding-top: 2px;
  padding-bottom: 2px;
 }
 
 .input{
- border: 2px solid blue;
  padding-top: 2px;
  padding-bottom: 2px;
+ max-width: 30vw;
+ min-width: 22vw;
 }
 
-.input_description{
-    border: 2px solid blue;
-    padding-top: 2px;
-    padding-bottom: 100px;
-}
-.center{
-    display: flex;
-    justify-content: center;
-}
 .button {
     -webkit-border-radius: 28;
     -moz-border-radius: 28;
     border-radius: 28px;
-    font-family: Arial;
-    color: #ffffff;
+    font-family: 'Merri-BoldItalic';
+    color: rgb(25 81 107);
     font-size: 20px;
-    background: #2cba92;
+    background: white;
     padding: 11px 20px 10px 20px;
     text-decoration: none;
     border: none;
     margin-top: 15px;
-  }
+}
   
 .button:hover {
     background: #a4d1ed;
     text-decoration: none;
-  }
-
-.create{
-    background-color: #e2f8f5;
 }
+
+a{
+    text-decoration: none;
+}
+
+.f_create {
+    background-color: rgb(25 81 107);
+    height: 11vh;
+    font-family: 'Merri-BlackItalic';
+}
+
+
+.resultdiv{
+    display: inline-block;
+    padding: 7px;
+}
+
 .result{
     text-decoration: none;
     list-style: none
+}
+.btn_delete{
+    border: 2px;
+    color: red;
+    border-radius: 50%;
+    padding: 3px;
 }

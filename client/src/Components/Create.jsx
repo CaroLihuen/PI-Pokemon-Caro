@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import Navbar from './Navbar';
 import { newPokemon , allTypes } from '../Actions/index';
@@ -59,7 +59,7 @@ export default function Create(){
     const {name, hp, attack, defense, speed, height, weight} = input;
     
     if(name === undefined || !name ) {
-        return alert("Name is invalid or name is invalid");
+        return alert("Name is undefined or name is invalid");
     }
      if(hp === undefined || !hp  ){ //
     return alert('Hp is undefined or hp is invalid') 
@@ -105,7 +105,9 @@ export default function Create(){
 
    return(
      <div>
-     <div >{<Navbar />}</div>
+      <header>
+        {<Navbar />}
+      </header>
         <div className="modal">
             <div className="modal__header">
             <h1>Create new Pokemon</h1>
@@ -119,11 +121,11 @@ export default function Create(){
               */}
              </div> 
              <div className="name">
-              <label>Hp:</label>
+              <label>Hp: </label>
               <input className="input" min='0' max='999' placeholder='Hp' type="number" value={input.hp} name="hp" onChange={(e)=>handleChange(e)}></input>   
              </div>
              <div className="name">
-              <label > Attack: </label>
+              <label >Attack: </label>
               <input className="input" min='0' max='999' placeholder='Attack' type="number" value={input.attack} name="attack" onChange={(e)=>handleChange(e)}></input>   
              </div>
              <div className="name">
@@ -139,15 +141,15 @@ export default function Create(){
               <input className="input" min='0' max='999' placeholder='Height' type="number" value={input.height} name="height" onChange={(e)=>handleChange(e)}></input>   
              </div>
              <div className="name">
-              <label>Weight:</label>
+              <label>Weight: </label>
               <input className="input" min='0' max='999' placeholder='weight' type="number" value={input.weight} name="weight" onChange={(e)=>handleChange(e)}></input>   
              </div>
              <div className="name">
-              <label >Sprite:</label>
+              <label >Sprite: </label>
               <input className="input" placeholder='Image/Url' type="text" value={input.sprite} name="sprite" onChange={(e)=>handleChange(e)}></input>   
              </div>  
              <div className="name">
-              <label >Types:</label>
+              <label >Types: </label>
               <select className="select" name="types" onChange={(e) => handleSelect(e)}>
                 Types:
                 { alltypes.map((t)=>(
@@ -156,9 +158,9 @@ export default function Create(){
               </select>   
              </div> 
              {input.types.map((el) => (
-              <div key={el}>
+              <div className='resultdiv' key={el}>
                <p className='result'>{el}</p>
-               <button onClick={() => handleDelete(el)}>x</button>
+               <button className='btn_delete' onClick={() => handleDelete(el)}>x</button>
              </div>
               ))}
              <br/>
@@ -168,6 +170,12 @@ export default function Create(){
              
             </form>
         </div>
+        <footer className="f_create">
+            <details>
+               <summary>Thank you for your visit!</summary>
+               <p><Link to={'/home'}>Home</Link></p>
+            </details>
+           </footer>
         </div>
     )
 }

@@ -1,35 +1,62 @@
+/**/@font-face{
+  font-family:'Merri-Black';
+  src: url('./Font/Merriweather-Black.ttf');
+}
+@font-face{
+  font-family:'Merri-BlackItalic';
+  src: url('./Font/Merriweather-BlackItalic.ttf');
+}
+@font-face{
+  font-family:'Merri-Bold';
+  src: url('./Font/Merriweather-Bold.ttf');
+}
+@font-face{
+  font-family:'Merri-BoldItalic';
+  src: url('./Font/Merriweather-BoldItalic.ttf');
+}
+@font-face{
+  font-family:'Merri-Italic';
+  src: url('./Font/Merriweather-Italic.ttf');
+}
+@font-face{
+  font-family:'Merri-Light';
+  src: url('./Font/Merriweather-Light.ttf');
+}
+@font-face{
+  font-family:'Merri-LightItalic';
+  src: url('./Font/Merriweather-LightItalic.ttf');
+}
+@font-face{
+  font-family:'Merri-Regular';
+  src: url('./Font/Merriweather-Regular.ttf');
+}
+@font-face{
+  font-family:'Tiro-Italic';
+  src: url('./Font/TiroGurmukhi-Italic.ttf');
+}
+@font-face{
+  font-family:'Tiro-Regular';
+  src: url('./Font/TiroGurmukhi-Regular.ttf');
+}
+
+*{
+  margin:0;
+  padding: 0;
+  box-sizing: border-box;
+}
 body {
-  background-image: linear-gradient(180deg, #2af598 0%, #009efd 100%);;
-  width: 100%;
-  height: 1000px; 
   margin: 0;
-   display: grid;
- }
- h2 {
-   font-family: "Times New Roman", Times, serif;
- }
-   
- h3 {
-   font-family: Arial, Helvetica, sans-serif;
- }
-   
- h1 {
-   font-family: "Serif";
- }
- h4 {
-   font-family: Arial, Helvetica, sans-serif;
- }
- h5 {
-   font-family: Arial, Helvetica, sans-serif;
- }
- 
- head{
-   background-image: linear-gradient(180deg, #2af598 0%, #009efd 100%);;
-   margin: 0;
-   display: flex;
-   justify-content: center;
-   align-content: center;
-   text-align: center;
- 
- }
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif,'Merri-Black','Merri-BlackItalic', 'Merri-Bold','Merri-BoldItalic',
+    'Merri-Italic', 'Merri-Light', 'Merri-LightItalic', 'Merri-Regular', 'Tiro-Italic',
+    'Tiro-Regular';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
  

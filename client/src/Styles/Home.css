@@ -6,18 +6,11 @@
   grid-area: header ;
   grid-row: inherit;
 }
-.container{
+.container_home{
+  display: flex;/*Quizas despues se lo saque!*/
   flex-wrap: wrap;
   margin-right: 1px;
   justify-content: center;
-  text-decoration: none
-}
-.container__item {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  padding-left: 10px;
-  padding-right: 10px;
   text-decoration: none
 }
 
@@ -82,6 +75,6 @@
   background: #a4d1ed;
   text-decoration: none;
 }
-.card{
+.card_home{
   text-decoration: none
 }

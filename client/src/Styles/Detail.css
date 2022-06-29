@@ -1,34 +1,22 @@
-/* Quedo Joya!! No tocar!*/
 .detail{ 
-    justify-content: center;
-    align-content: center;
-    text-align: center; 
-    position: 0;
+  position: relative;
+  max-height: 100vh;
+  min-height: 15vh;
+  margin-bottom: 10px;
 }
 
 .font{
-    text-align: center;
+  text-align: center;
+  font-family: 'Tiro-Italic';
 }
-
-.button {
-    -webkit-border-radius: 28;
-    -moz-border-radius: 28;
-    border-radius: 28px;
-    font-family: Arial;
-    color: #ffffff;
-    font-size: 20px;
-    background: #2cba92;
-    padding: 11px 20px 10px 20px;
-    text-decoration: none;
-    border: none;
-    margin-top: 15px;
-  }
-  
-.button:hover {
-    background: #a4d1ed;
-    text-decoration: none;
-  }
 
 .named{
   font-size: 35px;
+  font-family: 'Tiro-Italic';
 }  
+
+footer {
+  background-color: rgb(25 81 107);
+  height: 10vh;
+  font-family: 'Merri-BlackItalic';
+}

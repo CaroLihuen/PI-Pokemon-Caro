@@ -1,40 +1,39 @@
 .fondo{
   background-size: linear-gradient(180deg, #2af598 0%, #009efd 100%);;
-  justify-content: center;
-  background-image: url('https://i.pinimg.com/originals/b7/d9/e7/b7d9e7721c7964d3b7a1ca115a26db17.jpg');
+  position: absolute;
+  background-image: url('../Img/thimo-pedersen-dip9IIwUK6w-unsplash.jpg');
   background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
-  height: 150vh;
-  position: relative;
-  top: -22px;
+  height: 100%;
+  width: 100%;
 }
 .btn{
   display: flex;
   justify-content: center;
   text-decoration-line: none;
 }
-.button {
+.btn_Landing {
   justify-content: center;
   -webkit-border-radius: 28;
   -moz-border-radius: 28;
   border-radius: 28px;
-  font-family: Arial;
-  color: #ffffff;
+  font-family: 'Merri-BoldItalic';
+  color: black;
   font-size: 20px;
-  background: #2cba92;
+  background:  rgb(246, 249, 248);
   padding: 11px 20px 10px 20px;
   text-decoration: none;
   border: none;
   margin-top: 15px;
 }
     
-.button:hover {
-  background: #a4d1ed;
+.btn_Landing:hover {
+  background:  rgb(246, 249, 248);
   text-decoration: none;
 }
 .center{
   align-items: center;
   font-style: revert;
-  color: aquamarine;
+  color: rgb(246, 249, 248);
+  font-family: 'Merri-Black';
+  margin: 20px;
 }  

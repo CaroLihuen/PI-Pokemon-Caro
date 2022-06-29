@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import {useEffect} from "react";
 import { allPokemonbyID } from '../Actions/index'
 import Navbar from './Navbar';
@@ -16,8 +16,10 @@ export default function Detail(){
     },[dispatch,id])
 
     return(
-        <div className="detail">
-            <div>{<Navbar />}</div>
+        <div className="">
+            <header>
+                {<Navbar />}
+            </header>
             
             { pdetail ? (
              <div className="detail">
@@ -32,8 +34,14 @@ export default function Detail(){
                <h3 className="font">Types: {pdetail.types}</h3>
              </div>
             ): (
-           <h1>Loading...</h1>
+           <h1 className="font">Loading...</h1>
             )}
+            <footer>
+            <details>
+               <summary>Thank you for your visit!</summary>
+               <p><Link to={'/home'}>Home</Link></p>
+            </details>
+           </footer>
         </div>
     )
 }

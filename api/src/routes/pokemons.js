@@ -15,7 +15,7 @@ const router = Router();
    next(error)
   }
 });*/
-//Anda joya :)
+//Anda 
 router.get('/:id', async (req, res, next) => {
     const id = req.params.id
     let datas = await pokemonsAll();
